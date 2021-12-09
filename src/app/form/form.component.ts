@@ -1,4 +1,5 @@
 import { Component, OnInit , Input} from '@angular/core';
+import { IntrojsService } from '../introjs.service';
 
 @Component({
   selector: 'app-form',
@@ -7,7 +8,7 @@ import { Component, OnInit , Input} from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private introService:IntrojsService) { }
 
   ngOnInit(): void {
   }
@@ -42,4 +43,7 @@ export class FormComponent implements OnInit {
     this.amount=Number(amountvalue.value)
 
   }
+  ngAfterViewInit(): void {
+    this.introService.getfeature();
+}
 }
